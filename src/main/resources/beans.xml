@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- Setter base -->
+	<bean id="myService" class="training.entities.MyService"
+		autowire="byName">
+		<!--constructor base Inject dependency -->
+		<property name="dataService" ref="dataService" />
+	</bean>
+
+	<bean id="dataService" class="training.entities.DataService">
+		<property  name="name" value="AWS"></property>
+	</bean>
+	<bean id="dataServicev1" class="training.entities.DataService">
+		<property name="name" value="Azure"></property>
+
+	</bean>
+	<bean id="BeanB" class="training.entities.BeanB">
+		<constructor-arg value="7500000" />
+		<constructor-arg value="42" />
+	</bean>
+	<!-- <bean id="BeanB" class="training.entities.BeanB"> <constructor-arg 
+		type="int" value="7500000" /> <constructor-arg type="java.lang.String" value="42" 
+		/> </bean> -->
+</beans>
